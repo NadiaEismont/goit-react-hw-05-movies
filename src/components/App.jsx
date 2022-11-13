@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate, Link } from 'react-router-dom';
 import { Home } from 'pages/Home';
+import { MovieDetails } from 'pages/MovieDetails';
 
 export const App = () => {
   return (
@@ -20,9 +21,9 @@ export const App = () => {
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/movies" element={<Movies />} />
+          {/* <Route path="/movies" element={<Movies />} /> */}
           <Route path="/movies/:movieId" element={<MovieDetails />} />
-          <Route path="/movies/:movieId/cast" element={<MovieDetails />} />
+          {/* <Route path="/movies/:movieId/cast" element={<MovieDetails />} />
           <Route path="/movies/:movieId/reviews" element={<MovieDetails />} /> */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
