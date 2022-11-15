@@ -1,9 +1,9 @@
-import { fetchMovieReviews } from '../hooks/getMoviesReviewsHook';
+import { useFetchMovieReviews } from '../hooks/getMoviesReviewsHook';
 import { useParams } from 'react-router-dom';
 
 export const Reviews = () => {
   const { movieId } = useParams();
-  const { reviews, error, isLoading } = fetchMovieReviews(movieId);
+  const { reviews, error, isLoading } = useFetchMovieReviews(movieId);
   return (
     <ul>
       {reviews.map(({ author, content }) => (

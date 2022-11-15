@@ -23,6 +23,7 @@ export const App = () => {
           <Link to="/movies">Movies</Link>
         </nav>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />

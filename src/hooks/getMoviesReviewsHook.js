@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getMoviesReviews } from 'API'
 
 
-export const fetchMovieReviews = (movieId) => {
+export const useFetchMovieReviews = (movieId) => {
     const [reviews, setReviews] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsloading] = useState(false);

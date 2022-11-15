@@ -2,7 +2,7 @@ import { useEffect, useState, } from 'react';
 import { searchMovies } from 'API'
 import { useSearchParams, useLocation } from 'react-router-dom';
 
-export const useSearchMovie = () => {
+export const useSearchMovie = (query) => {
     const [movie, setMovie] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsloading] = useState(false);
@@ -12,7 +12,7 @@ export const useSearchMovie = () => {
 
         const fetchData = async () => {
             try {
-                const data = await searchMovies();
+                const data = await searchMovies(query);
                 setMovie(data);
             } catch (error) {
                 console.error(error);

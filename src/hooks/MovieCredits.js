@@ -3,7 +3,7 @@ import { getMoviesCredits } from 'API'
 
 
 export const useMovieCredits = (movieId) => {
-    const [movie, setMovie] = useState([]);
+    const [cast, setCast] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsloading] = useState(false);
 
@@ -13,7 +13,8 @@ export const useMovieCredits = (movieId) => {
         const fetchData = async () => {
             try {
                 const data = await getMoviesCredits(movieId);
-                setMovie(data);
+                console.log(data);
+                setCast(data);
             } catch (error) {
                 console.error(error);
                 setError(error.message);
@@ -25,5 +26,5 @@ export const useMovieCredits = (movieId) => {
         fetchData();
     }, []);
 
-    return { movie, error, isLoading };
+    return { cast, error, isLoading };
 };
