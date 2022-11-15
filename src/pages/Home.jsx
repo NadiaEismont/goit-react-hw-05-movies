@@ -2,25 +2,27 @@ import { Link } from 'react-router-dom';
 import { useFetchMovies } from '../hooks/trendingMoviesHook';
 import Loader from 'components/Loader';
 import { useLocation } from 'react-router-dom';
-import { Pane, Text, Heading } from 'evergreen-ui';
+import { Pane, Text, Heading, UnorderedList, ListItem } from 'evergreen-ui';
 
 export const Home = () => {
   const { movies, error, isLoading } = useFetchMovies();
   const location = useLocation();
   return (
     <main>
-      <Heading size={900}>Trending today</Heading>
+      <Heading size={900} is="h1">
+        Trending today
+      </Heading>
       {error && <p textAlign="center"> OOOPS! Something went wrong! </p>}
       {isLoading && <Loader />}
-      <ul>
+      <UnorderedList>
         {movies.map(({ id, title }) => (
-          <li>
+          <ListItem size={600}>
             <Link to={`movies/${id}`} state={{ from: location }}>
               {title}
             </Link>
-          </li>
+          </ListItem>
         ))}
-      </ul>
+      </UnorderedList>
     </main>
   );
 };

@@ -6,6 +6,14 @@ import { Cast } from './Cast';
 import { Reviews } from './Reviews';
 import { Icon, HomeIcon, Text, FilmIcon, minorScale } from 'evergreen-ui';
 
+import styled from '@emotion/styled';
+
+const MyLink = styled(Link)`
+  &:hover {
+    color: #fff !important;
+  }
+`;
+
 export const App = () => {
   return (
     <div
@@ -20,14 +28,14 @@ export const App = () => {
     >
       <div>
         <nav>
-          <Link to="/">
+          <MyLink to="/">
             <Icon icon={HomeIcon} size={30} />{' '}
             <Text size={minorScale(2)} marginRight={30}>
               Home
             </Text>
-          </Link>
+          </MyLink>
           <Link to="/movies">
-            <Icon icon={FilmIcon} size={30} />
+            <Icon icon={FilmIcon} marginRight={20} size={30} />
             <Text size={minorScale(3)}>Movies</Text>
           </Link>
         </nav>

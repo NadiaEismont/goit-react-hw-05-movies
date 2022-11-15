@@ -2,6 +2,7 @@ import Loader from 'components/Loader';
 import Searchbar from 'components/SearchBar';
 import { useSearchMovie } from 'hooks/searchMoviesHook';
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
+import { Text, Heading, UnorderedList, ListItem } from 'evergreen-ui';
 
 export const Movies = () => {
   const location = useLocation();
@@ -20,15 +21,15 @@ export const Movies = () => {
       <Searchbar onSubmit={handleSubmit}></Searchbar>
       {isLoading && <Loader />}
       {movies && !isLoading && (
-        <ul>
+        <UnorderedList>
           {movies.map(({ id, title }) => (
-            <li>
+            <ListItem size={500}>
               <Link to={`movies/${id}`} state={{ from: location }}>
                 {title}
               </Link>
-            </li>
+            </ListItem>
           ))}
-        </ul>
+        </UnorderedList>
       )}
       {error && <div>{error}</div>}
     </>
