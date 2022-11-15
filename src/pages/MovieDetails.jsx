@@ -6,7 +6,7 @@ import { Pane, Text, Heading, HandLeftIcon, Icon } from 'evergreen-ui';
 export const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
-  const { movie, error, isLoading } = useMovieDetails(movieId);
+  const { movie } = useMovieDetails(movieId);
 
   return (
     <>

@@ -4,7 +4,7 @@ import { Text, Heading, UnorderedList, ListItem } from 'evergreen-ui';
 
 export const Reviews = () => {
   const { movieId } = useParams();
-  const { reviews, error, isLoading } = useFetchMovieReviews(movieId);
+  const { reviews } = useFetchMovieReviews(movieId);
   return (
     <UnorderedList>
       {reviews.map(({ id, author, content }) => (
