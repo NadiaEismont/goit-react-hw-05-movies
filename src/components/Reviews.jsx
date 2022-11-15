@@ -13,6 +13,7 @@ export const Reviews = () => {
           <Text>{content}</Text>
         </ListItem>
       ))}
+      {/* // .length !== 0 ?? <p>Sorry, we haven't reviews yet</p>} */}
     </UnorderedList>
   );
 };

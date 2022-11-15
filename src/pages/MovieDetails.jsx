@@ -9,14 +9,18 @@ export const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const { movie, error, isLoading } = useMovieDetails(movieId);
+
   return (
     <>
-      <Link to={location.state.from}>
+      <Link to={location.state ? location.state.from : '/'}>
         <Icon icon={HandLeftIcon} size={30} />
         <Text size={600}>Go Back</Text>
       </Link>
       <Pane>
-        <img src={movie.backdrop_path} alt={movie.title} />
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt=""
+        />
         <Heading size={400}>
           {movie.title}({movie.release_date})
         </Heading>
@@ -24,7 +28,7 @@ export const MovieDetails = () => {
         <Heading size={400}>Overview</Heading>
         <Text>{movie.overview}</Text>
         <Heading size={400}>Genres</Heading>
-        {/* <p>{movie.genres.map(genre => genre.name).join(', ')}</p> */}
+        <p>{movie.genres && movie.genres.map(gen => gen.name + ' ')}</p>
         <Pane>
           <Heading size={700}>Additional information</Heading>
           <Link to="cast" state={{ from: location }}>

@@ -13,7 +13,6 @@ export const useMovieCredits = (movieId) => {
         const fetchData = async () => {
             try {
                 const data = await getMoviesCredits(movieId);
-                console.log(data);
                 setCast(data);
             } catch (error) {
                 console.error(error);
