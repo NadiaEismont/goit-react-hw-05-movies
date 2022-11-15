@@ -2,7 +2,7 @@ import Loader from 'components/Loader';
 import Searchbar from 'components/SearchBar';
 import { useSearchMovie } from 'hooks/searchMoviesHook';
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
-import { Text, Heading, UnorderedList, ListItem } from 'evergreen-ui';
+import { UnorderedList, ListItem } from 'evergreen-ui';
 
 export const Movies = () => {
   const location = useLocation();
@@ -23,8 +23,8 @@ export const Movies = () => {
       {movies && !isLoading && (
         <UnorderedList>
           {movies.map(({ id, title }) => (
-            <ListItem size={500}>
-              <Link to={`movies/${id}`} state={{ from: location }}>
+            <ListItem size={500} key={id}>
+              <Link to={`/movies/${id}`} state={{ from: location }}>
                 {title}
               </Link>
             </ListItem>

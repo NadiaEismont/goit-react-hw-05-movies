@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useFetchMovies } from '../hooks/trendingMoviesHook';
 import Loader from 'components/Loader';
 import { useLocation } from 'react-router-dom';
-import { Pane, Text, Heading, UnorderedList, ListItem } from 'evergreen-ui';
+import { Heading, UnorderedList, ListItem } from 'evergreen-ui';
 
 export const Home = () => {
   const { movies, error, isLoading } = useFetchMovies();
@@ -16,8 +16,8 @@ export const Home = () => {
       {isLoading && <Loader />}
       <UnorderedList>
         {movies.map(({ id, title }) => (
-          <ListItem size={600}>
-            <Link to={`movies/${id}`} state={{ from: location }}>
+          <ListItem size={600} key={id}>
+            <Link to={`/movies/${id}`} state={{ from: location }}>
               {title}
             </Link>
           </ListItem>

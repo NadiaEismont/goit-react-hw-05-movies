@@ -1,19 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
-import { useSearchMovie } from '../hooks/trendingMoviesHook';
 import { useMovieDetails } from '../hooks/MoviesDetails';
-import { getMoviesDetails, getMoviesCredits, getMoviesReviews } from '../API';
 import { Outlet, useLocation } from 'react-router-dom';
-import {
-  Pane,
-  Text,
-  Heading,
-  HandLeftIcon,
-  Icon,
-  minorScale,
-  Popover,
-  Button,
-} from 'evergreen-ui';
-import { Cast } from 'components/Cast';
+import { Pane, Text, Heading, HandLeftIcon, Icon } from 'evergreen-ui';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
@@ -44,12 +32,12 @@ export const MovieDetails = () => {
         <Pane>
           <Heading size={700}>Additional information</Heading>
           <Link to="cast" state={{ from: location }}>
-            <Text size={minorScale(1)} marginRight={30}>
+            <Text size={600} marginRight={30}>
               Cast
             </Text>
           </Link>
           <Link to="reviews" state={{ from: location }}>
-            <Text size={minorScale(1)} marginRight={30}>
+            <Text size={600} marginRight={30}>
               Reviews
             </Text>
           </Link>

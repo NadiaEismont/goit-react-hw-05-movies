@@ -8,7 +8,6 @@ export const fetchMovies = async () => {
         `/trending/movie/day?api_key=${key}`,
 
     );
-    console.log(response)
     return response.data.results;
 }
 

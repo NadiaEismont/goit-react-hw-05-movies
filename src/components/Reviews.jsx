@@ -7,13 +7,13 @@ export const Reviews = () => {
   const { reviews, error, isLoading } = useFetchMovieReviews(movieId);
   return (
     <UnorderedList>
-      {reviews.map(({ author, content }) => (
-        <ListItem>
-          <Heading size={500}>Author: {author}</Heading>
-          <Text>{content}</Text>
+      {reviews.map(({ id, author, content }) => (
+        <ListItem key={id}>
+          <Heading size={800}>Author: {author}</Heading>
+          <Text size={600}>{content}</Text>
         </ListItem>
       ))}
-      {/* // .length !== 0 ?? <p>Sorry, we haven't reviews yet</p>} */}
+      {reviews.length === 0 && <p>Sorry, we haven't reviews yet</p>}
     </UnorderedList>
   );
 };
