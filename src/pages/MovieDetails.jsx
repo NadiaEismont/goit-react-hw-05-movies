@@ -3,7 +3,7 @@ import { useSearchMovie } from '../hooks/trendingMoviesHook';
 import { useMovieDetails } from '../hooks/MoviesDetails';
 import { getMoviesDetails, getMoviesCredits, getMoviesReviews } from '../API';
 import { Outlet, useLocation } from 'react-router-dom';
-import { Pane, Text, Heading, majorScale } from 'evergreen-ui';
+import { Pane, Text, Heading, HandLeftIcon, Icon } from 'evergreen-ui';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
@@ -11,19 +11,22 @@ export const MovieDetails = () => {
   const { movie, error, isLoading } = useMovieDetails(movieId);
   return (
     <>
-      <Link to={location.state.from}>Go Back</Link>
+      <Link to={location.state.from}>
+        <Icon icon={HandLeftIcon} size={30} />
+        <Text size={600}>Go Back</Text>
+      </Link>
       <Pane>
         <img src={movie.backdrop_path} alt={movie.title} />
-        <Heading>
+        <Heading size={400}>
           {movie.title}({movie.release_date})
         </Heading>
         <Text>User score: {movie.vote_average}</Text>
-        <h2>Overview</h2>
+        <Heading size={400}>Overview</Heading>
         <Text>{movie.overview}</Text>
-        <h3>Genres</h3>
+        <Heading size={400}>Genres</Heading>
         {/* <p>{movie.genres.map(genre => genre.name).join(', ')}</p> */}
-        <div>
-          <Text>Additional information</Text>
+        <Pane>
+          <Heading size={700}>Additional information</Heading>
           <Link to="cast" state={{ from: location }}>
             Cast
           </Link>
@@ -31,7 +34,7 @@ export const MovieDetails = () => {
             Reviews
           </Link>
           <Outlet />
-        </div>
+        </Pane>
       </Pane>
     </>
   );

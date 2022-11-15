@@ -1,14 +1,20 @@
 import PropTypes from 'prop-types';
+import { SearchInput, Button } from 'evergreen-ui';
 
 const Searchbar = ({ onSubmit }) => (
   <>
     <header className="Searchbar">
       <form className="SearchForm" onSubmit={onSubmit}>
-        <button type="submit" className="SearchForm-button">
-          <span className="SearchForm-button-label"></span>
-        </button>
+        <Button
+          marginRight={10}
+          appearance="primary"
+          type="submit"
+          className="SearchForm-button"
+        >
+          <span className="SearchForm-button-label">Go</span>
+        </Button>
 
-        <input
+        <SearchInput
           className="SearchForm-input"
           type="text"
           name="search"

@@ -1,17 +1,18 @@
 import { useFetchMovieReviews } from '../hooks/getMoviesReviewsHook';
 import { useParams } from 'react-router-dom';
+import { Text, Heading, UnorderedList, ListItem } from 'evergreen-ui';
 
 export const Reviews = () => {
   const { movieId } = useParams();
   const { reviews, error, isLoading } = useFetchMovieReviews(movieId);
   return (
-    <ul>
+    <UnorderedList>
       {reviews.map(({ author, content }) => (
-        <li>
-          <h3>Author: {author}</h3>
-          <p>{content}</p>
-        </li>
+        <ListItem>
+          <Heading size={500}>Author: {author}</Heading>
+          <Text>{content}</Text>
+        </ListItem>
       ))}
-    </ul>
+    </UnorderedList>
   );
 };

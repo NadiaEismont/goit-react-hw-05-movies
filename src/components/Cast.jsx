@@ -1,18 +1,18 @@
 import { useMovieCredits } from '../hooks/MovieCredits';
 import { useParams } from 'react-router-dom';
-
+import { Text, Heading, UnorderedList, ListItem } from 'evergreen-ui';
 export const Cast = () => {
   const { movieId } = useParams();
   const { credits, error, isLoading } = useMovieCredits(movieId);
   return (
-    <ul>
+    <UnorderedList>
       {credits.map(({ name, character, profile_path }) => (
-        <li>
+        <ListItem>
           <img href={profile_path} />
-          <h3>{name}</h3>
-          <p>{character}</p>
-        </li>
+          <Heading size={500}>{name}</Heading>
+          <Text>{character}</Text>
+        </ListItem>
       ))}
-    </ul>
+    </UnorderedList>
   );
 };

@@ -4,6 +4,7 @@ import { MovieDetails } from 'pages/MovieDetails';
 import { Movies } from 'pages/Movies';
 import { Cast } from './Cast';
 import { Reviews } from './Reviews';
+import { Icon, HomeIcon, Text, FilmIcon, minorScale } from 'evergreen-ui';
 
 export const App = () => {
   return (
@@ -19,8 +20,16 @@ export const App = () => {
     >
       <div>
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
+          <Link to="/">
+            <Icon icon={HomeIcon} size={30} />{' '}
+            <Text size={minorScale(2)} marginRight={30}>
+              Home
+            </Text>
+          </Link>
+          <Link to="/movies">
+            <Icon icon={FilmIcon} size={30} />
+            <Text size={minorScale(3)}>Movies</Text>
+          </Link>
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
