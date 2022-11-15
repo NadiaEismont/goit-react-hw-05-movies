@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useSearchMovie } from '../hooks/trendingMoviesHook';
 import { useMovieDetails } from '../hooks/MoviesDetails';
 import { getMoviesDetails, getMoviesCredits, getMoviesReviews } from '../API';
+import { Outlet, useLocation } from 'react-router-dom';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
@@ -21,8 +22,9 @@ export const MovieDetails = () => {
         {/* <p>{movie.genres.map(genre => genre.name).join(', ')}</p> */}
         <div>
           <p>Additional information</p>
-          {/* <a href={getMoviesCredits}>Cast</a> */}
-          {/* <a href={getMoviesReviews}>Reviews</a> */}
+          <Link to="cast">Cast</Link>
+          <Link to="reviews">Reviews</Link>
+          <Outlet />
         </div>
       </div>
     </>

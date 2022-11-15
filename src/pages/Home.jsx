@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useFetchMovies } from '../hooks/trendingMoviesHook';
+import Loader from 'components/Loader';
 
 export const Home = () => {
   const { movies, error, isLoading } = useFetchMovies();
@@ -7,7 +8,7 @@ export const Home = () => {
     <main>
       <h1>Trending today</h1>
       {error && <p textAlign="center"> OOOPS! Something went wrong! </p>}
-      {/* {isLoading && <Loader />} */}
+      {isLoading && <Loader />}
       <ul>
         {movies.map(({ id, title }) => (
           <li>

@@ -1,9 +1,9 @@
-import { useEffect, useState, } from 'react';
-import { searchMovies } from 'API'
-import { useSearchParams, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getMoviesReviews } from 'API'
 
-export const useSearchMovie = () => {
-    const [movie, setMovie] = useState([]);
+
+export const fetchMovieReviews = (movieId) => {
+    const [reviews, setReviews] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsloading] = useState(false);
 
@@ -12,8 +12,8 @@ export const useSearchMovie = () => {
 
         const fetchData = async () => {
             try {
-                const data = await searchMovies();
-                setMovie(data);
+                const data = await getMoviesReviews(movieId);
+                setReviews(data);
             } catch (error) {
                 console.error(error);
                 setError(error.message);
@@ -25,5 +25,5 @@ export const useSearchMovie = () => {
         fetchData();
     }, []);
 
-    return { movie, error, isLoading };
+    return { reviews, error, isLoading };
 };
