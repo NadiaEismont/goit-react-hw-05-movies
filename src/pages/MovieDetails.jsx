@@ -10,8 +10,10 @@ import {
   HandLeftIcon,
   Icon,
   minorScale,
-   Popover
+  Popover,
+  Button,
 } from 'evergreen-ui';
+import { Cast } from 'components/Cast';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
@@ -41,13 +43,10 @@ export const MovieDetails = () => {
         </Text>
         <Pane>
           <Heading size={700}>Additional information</Heading>
-           <Popover  content={
           <Link to="cast" state={{ from: location }}>
             <Text size={minorScale(1)} marginRight={30}>
               Cast
-              </Text> }>
-               <Button>Trigger Popover</Button>
-             </Popover>
+            </Text>
           </Link>
           <Link to="reviews" state={{ from: location }}>
             <Text size={minorScale(1)} marginRight={30}>
