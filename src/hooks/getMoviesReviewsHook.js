@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getMoviesReviews } from 'API'
-
+import PropTypes from 'prop-types';
 
 export const useFetchMovieReviews = (movieId) => {
     const [reviews, setReviews] = useState([]);
@@ -23,7 +23,11 @@ export const useFetchMovieReviews = (movieId) => {
         };
 
         fetchData();
-    }, []);
+    }, [movieId]);
 
     return { reviews, error, isLoading };
+};
+
+useFetchMovieReviews.propTypes = {
+    movieId: PropTypes.number.isRequired,
 };

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getMoviesCredits } from 'API'
+import PropTypes from 'prop-types';
 
 
 export const useMovieCredits = (movieId) => {
@@ -23,7 +24,11 @@ export const useMovieCredits = (movieId) => {
         };
 
         fetchData();
-    }, []);
+    }, [movieId]);
 
     return { cast, error, isLoading };
+};
+
+useMovieCredits.propTypes = {
+    movieId: PropTypes.integer.isRequired,
 };

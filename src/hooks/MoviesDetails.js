@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getMoviesDetails } from 'API'
-
+import PropTypes from 'prop-types';
 
 export const useMovieDetails = (movieId) => {
     const [movie, setMovie] = useState([]);
@@ -23,7 +23,11 @@ export const useMovieDetails = (movieId) => {
         };
 
         fetchData();
-    }, []);
+    }, [movieId]);
 
     return { movie, error, isLoading };
+};
+
+useMovieDetails.propTypes = {
+    movieId: PropTypes.number.isRequired,
 };
