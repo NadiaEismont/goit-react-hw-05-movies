@@ -1,14 +1,16 @@
+import { Link, useSearchParams, useLocation } from 'react-router-dom';
+import { UnorderedList, ListItem } from 'evergreen-ui';
 import Loader from 'components/Loader';
 import Searchbar from 'components/SearchBar';
 import { useSearchMovie } from 'hooks/searchMoviesHook';
-import { Link, useSearchParams, useLocation } from 'react-router-dom';
-import { UnorderedList, ListItem } from 'evergreen-ui';
 
 export const Movies = () => {
   const location = useLocation();
+
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('q');
   const { movies, error, isLoading } = useSearchMovie(query);
+
   const handleSubmit = async evt => {
     evt.preventDefault();
     const form = evt.currentTarget;
@@ -20,7 +22,7 @@ export const Movies = () => {
     <>
       <Searchbar onSubmit={handleSubmit}></Searchbar>
       {isLoading && <Loader />}
-      {movies && !isLoading && (
+      {!!movies.length && !isLoading && (
         <UnorderedList>
           {movies.map(({ id, title }) => (
             <ListItem size={500} key={id}>

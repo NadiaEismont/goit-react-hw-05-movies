@@ -1,8 +1,10 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import Header from './Header/Header';
+import { Routes, Route, Navigate } from 'react-router-dom';
+
 import { Pane } from 'evergreen-ui';
+import Header from './Header/Header';
 import Loader from './Loader';
+
 const Home = lazy(() => import('pages/Home'));
 const MovieDetails = lazy(() => import('pages/MovieDetails'));
 const Movies = lazy(() => import('pages/Movies'));

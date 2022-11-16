@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getMoviesCredits } from 'API'
+import { getMoviesCredits } from 'components/service/api'
 import PropTypes from 'prop-types';
 
 

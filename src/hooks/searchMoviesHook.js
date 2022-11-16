@@ -1,5 +1,5 @@
 import { useEffect, useState, } from 'react';
-import { searchMovies } from 'API'
+import { searchMovies } from 'components/service/api'
 
 export const useSearchMovie = (query) => {
     const [movies, setMovies] = useState([]);

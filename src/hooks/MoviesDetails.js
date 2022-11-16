@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getMoviesDetails } from 'API'
+import { getMoviesDetails } from 'components/service/api'
 import PropTypes from 'prop-types';
 
 export const useMovieDetails = (movieId) => {
