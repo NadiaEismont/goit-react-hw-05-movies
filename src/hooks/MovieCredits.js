@@ -30,5 +30,5 @@ export const useMovieCredits = (movieId) => {
 };
 
 useMovieCredits.propTypes = {
-    movieId: PropTypes.integer.isRequired,
+    movieId: PropTypes.integer,
 };

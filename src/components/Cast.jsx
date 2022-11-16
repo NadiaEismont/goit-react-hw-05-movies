@@ -2,7 +2,7 @@ import { useMovieCredits } from '../hooks/MovieCredits';
 import { useParams } from 'react-router-dom';
 import { Text, Heading, UnorderedList, ListItem } from 'evergreen-ui';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const { cast } = useMovieCredits(movieId);
   return (
@@ -21,3 +21,5 @@ export const Cast = () => {
     </UnorderedList>
   );
 };
+
+export default Cast;

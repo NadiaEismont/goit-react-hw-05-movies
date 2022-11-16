@@ -2,7 +2,7 @@ import { useFetchMovieReviews } from '../hooks/getMoviesReviewsHook';
 import { useParams } from 'react-router-dom';
 import { Text, Heading, UnorderedList, ListItem } from 'evergreen-ui';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { movieId } = useParams();
   const { reviews } = useFetchMovieReviews(movieId);
 
@@ -18,3 +18,5 @@ export const Reviews = () => {
     </UnorderedList>
   );
 };
+
+export default Reviews;

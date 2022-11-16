@@ -4,7 +4,7 @@ import Loader from 'components/Loader';
 import { useLocation } from 'react-router-dom';
 import { Heading, UnorderedList, ListItem } from 'evergreen-ui';
 
-export const Home = () => {
+const Home = () => {
   const { movies, error, isLoading } = useFetchMovies();
   const location = useLocation();
   return (
@@ -26,3 +26,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;

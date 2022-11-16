@@ -3,7 +3,7 @@ import { useMovieDetails } from '../hooks/MoviesDetails';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Pane, Text, Heading, HandLeftIcon, Icon } from 'evergreen-ui';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const { movie } = useMovieDetails(movieId);
@@ -47,3 +47,5 @@ export const MovieDetails = () => {
     </>
   );
 };
+
+export default MovieDetails;

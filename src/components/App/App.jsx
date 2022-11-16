@@ -2,14 +2,14 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { Pane } from 'evergreen-ui';
-import Header from './Header/Header';
-import Loader from './Loader';
+import Header from '../Header/Header';
+import Loader from '../Loader';
 
 const Home = lazy(() => import('pages/Home'));
 const MovieDetails = lazy(() => import('pages/MovieDetails'));
 const Movies = lazy(() => import('pages/Movies'));
-const Cast = lazy(() => import('./Cast'));
-const Reviews = lazy(() => import('./Reviews'));
+const Cast = lazy(() => import('../Cast'));
+const Reviews = lazy(() => import('../Reviews'));
 
 export const App = () => {
   return (

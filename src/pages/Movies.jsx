@@ -4,7 +4,7 @@ import Loader from 'components/Loader';
 import Searchbar from 'components/SearchBar';
 import { useSearchMovie } from 'hooks/searchMoviesHook';
 
-export const Movies = () => {
+const Movies = () => {
   const location = useLocation();
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -37,3 +37,5 @@ export const Movies = () => {
     </>
   );
 };
+
+export default Movies;
