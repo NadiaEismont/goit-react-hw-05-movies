@@ -17,7 +17,7 @@ const Home = () => {
       <UnorderedList>
         {movies.map(({ id, title }) => (
           <ListItem size={600} key={id}>
-            <Link to={`/movies${id}`} state={{ from: location }}>
+            <Link to={`/movies/${id}`} state={{ from: location }}>
               {title}
             </Link>
           </ListItem>
