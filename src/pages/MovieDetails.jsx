@@ -31,12 +31,12 @@ const MovieDetails = () => {
         </Text>
         <Pane>
           <Heading size={700}>Additional information</Heading>
-          <Link to="cast" state={{ from: location }}>
+          <Link to="cast" state={{ from: location?.state?.from }}>
             <Text size={600} marginRight={30}>
               Cast
             </Text>
           </Link>
-          <Link to="reviews" state={{ from: location }}>
+          <Link to="reviews" state={{ from: location?.state?.from }}>
             <Text size={600} marginRight={30}>
               Reviews
             </Text>
