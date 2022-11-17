@@ -13,7 +13,7 @@ export const fetchMovies = async () => {
 
 export const searchMovies = async (query) => {
     const response = await axios.get(
-        `/search/movie/?api_key=${key}&query=${query}&page=1`,
+        `/search/movie?api_key=${key}&query=${query}&page=1`,
     );
     return response.data.results;
 }
